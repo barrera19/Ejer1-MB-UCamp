@@ -5,7 +5,7 @@ using TMPro;
 
 public class Acciones : MonoBehaviour
 {
-    public TextMeshProUGUI posibles, opreacion, resultado, rrto;
+    public TextMeshProUGUI posibles, opreacion, resultado, retro;
     public TMP_InputField entrada1, entrada2;
     public int puntos = 0;
     public GameObject[] botones;
@@ -30,6 +30,9 @@ public class Acciones : MonoBehaviour
         botones[0].SetActive(false);
         botones[1].SetActive(true);
 
+        //Imprimo los Puntos como Retro
+        retro.text = "puntos: " + puntos; 
+
         //Inicializar la Pregunta 2
         posibles.text = "9, 6, 3, 5";
         opreacion.text = "-";
@@ -46,6 +49,7 @@ public class Acciones : MonoBehaviour
             puntos++;
         }
 
+        retro.text = "puntos: " + puntos; 
         botones[1].SetActive(false);
         botones[2].SetActive(true);
 
@@ -68,6 +72,8 @@ public class Acciones : MonoBehaviour
         {
             puntos++;
         }
+
+        retro.text = "puntos: " + puntos; 
         botones[2].SetActive(false);
         botones[3].SetActive(true);
 
@@ -86,7 +92,7 @@ public class Acciones : MonoBehaviour
         {
             puntos++;
         }
-
+        retro.text = "puntos: " + puntos; 
         botones[3].SetActive(false);
         botones[4].SetActive(true);
 
@@ -108,7 +114,7 @@ public class Acciones : MonoBehaviour
         {
             puntos++;
         }
-
+        retro.text = "puntos: " + puntos; 
         botones[4].SetActive(false);
         botones[5].SetActive(true);
 
@@ -132,6 +138,7 @@ public class Acciones : MonoBehaviour
             puntos++;
         }
 
+        retro.text = "puntos: " + puntos; 
         botones[5].SetActive(false);
         botones[6].SetActive(true);
 
@@ -155,6 +162,7 @@ public class Acciones : MonoBehaviour
             puntos++;
         }
 
+        retro.text = "puntos: " + puntos; 
         botones[6].SetActive(false);
         botones[7].SetActive(true);
 
@@ -178,6 +186,7 @@ public class Acciones : MonoBehaviour
             puntos++;
         }
 
+        retro.text = "puntos: " + puntos; 
         botones[7].SetActive(false);
         botones[8].SetActive(true);
 
@@ -200,6 +209,7 @@ public class Acciones : MonoBehaviour
             puntos++;
         }
 
+        retro.text = "puntos: " + puntos; 
         botones[8].SetActive(false);
         botones[9].SetActive(true);
 
@@ -222,28 +232,34 @@ public class Acciones : MonoBehaviour
             puntos++;
         }
 
+        retro.text = "puntos: " + puntos; 
         botones[9].SetActive(false);
-        botones[10].SetActive(true);
+        MostrarRetro();
 
       //Esconder entras y etiquetas
-
+      
+        /*posibles.GameObject.SetActive(false);
+        opreacion.GameObject.SetActive(false);
+        resultado.GameObject.SetActive(false);
+        entrada1.GameObject.SetActive(false);
+        entrada2.GameObject.SetActive(false); */
     }
    
-    //mostrar RRETO
+    //mostrar RETRO
     public void MostrarRetro()
     {
         if (puntos <= 6)
         {
             //RETRO propiedad TEXT pornerle el valor "------"
-            rrto.text = "Ups,Esfuérzate un poco más, intenta nuevamente para que obtengas más puntos";
+            retro.text = "Ups,Esfuérzate un poco más, intenta nuevamente para que obtengas más puntos";
         }
         else if(puntos <= 9)
         {
-            rrto.text = "¡Lo has hecho muy bien, pero puedes volverlo a intentar si deseas obtener un puntaje mayor";
+            retro.text = "¡Lo has hecho muy bien, pero puedes volverlo a intentar si deseas obtener un puntaje mayor";
         }
         else if(puntos == 10)
         {
-            rrto.text = "Wow, no te equivocaste, felicidades, lograste el puntaje máximo posible!";
+            retro.text = "Wow, no te equivocaste, felicidades, lograste el puntaje máximo posible!";
         }
     }
 }
