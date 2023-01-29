@@ -8,9 +8,8 @@ public class Acciones : MonoBehaviour
     public TextMeshProUGUI posibles, opreacion, resultado, retro;
     public TMP_InputField entrada1, entrada2;
     public int puntos = 0;
-    public GameObject[] botones;
-    public GameObject[] salidas;
-
+    public GameObject[] botones, salidas;
+    
     private void Start()
     {
         posibles.text = "1, 8, 5, 3";
