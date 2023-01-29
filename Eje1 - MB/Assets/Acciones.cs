@@ -9,12 +9,24 @@ public class Acciones : MonoBehaviour
     public TMP_InputField entrada1, entrada2;
     public int puntos = 0;
     public GameObject[] botones;
+    public GameObject[] salidas;
 
     private void Start()
     {
         posibles.text = "1, 8, 5, 3";
         opreacion.text = "+";
         resultado.text = "11";
+
+        //Inicializo en caso que sea un nuevo intento
+        if(botones[10])
+        {
+            botones[10].SetActive(false);
+            botones[0].SetActive(true);
+            puntos = 0;
+            retro.text = "puntos: " + puntos;
+            entrada1.text = "";
+            entrada2.text = "";
+        }
     }
 
     public void Pregunta1() {
@@ -32,6 +44,8 @@ public class Acciones : MonoBehaviour
 
         //Imprimo los Puntos como Retro
         retro.text = "puntos: " + puntos; 
+    
+
 
         //Inicializar la Pregunta 2
         posibles.text = "9, 6, 3, 5";
@@ -234,20 +248,30 @@ public class Acciones : MonoBehaviour
 
         retro.text = "puntos: " + puntos; 
         botones[9].SetActive(false);
-        MostrarRetro();
+        botones[10].SetActive(true);
+;        MostrarRetro();
 
-      //Esconder entras y etiquetas
-      
-        /*posibles.GameObject.SetActive(false);
-        opreacion.GameObject.SetActive(false);
-        resultado.GameObject.SetActive(false);
-        entrada1.GameObject.SetActive(false);
-        entrada2.GameObject.SetActive(false); */
+    }
+
+    public void volverEmpezar(){
+       Start();
+        for(int i=0; i<6; i++)
+        {
+           salidas[i].SetActive(true);
+         }
     }
    
     //mostrar RETRO
     public void MostrarRetro()
-    {
+    { 
+
+        //Esconder entras y etiquetas
+      for(int i=0; i<6; i++)
+      {
+        salidas[i].SetActive(false);
+      }
+        
+
         if (puntos <= 6)
         {
             //RETRO propiedad TEXT pornerle el valor "------"
